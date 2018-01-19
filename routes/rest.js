@@ -1,13 +1,13 @@
-'use strict';
+var keystone = require('keystone');
 
-const keystone = require('keystone');
-const restful = require('restful-keystone')(keystone);
+// Pass your keystone instance to the module
+var restful = require('restful-keystone')(keystone);
 
-module.exports = function () {
-    restful.expose({
-        Step: {
-            methods: ["retrieve"],
-            show: ['name', 'price', 'sponsor', 'isSold', 'isReserved']
-        },
-    }).start();
+// ...
+
+exports = module.exports = function( app ){
+  //Explicitly define which lists we want exposed
+  restful.expose({
+    Step : true
+  }).start();
 };

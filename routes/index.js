@@ -30,11 +30,12 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 const routes = {
-	views: importRoutes('./controllers'),
+	controllers: importRoutes('./controllers'),
 };
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
+	app.get('/', routes.controllers.reserve);
 	app.all('/api*', keystone.middleware.cors);
-	rest();
+	rest(app);
 };
