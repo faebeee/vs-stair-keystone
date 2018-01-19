@@ -29,7 +29,7 @@ keystone.init({
 	'emails': 'templates/emails',
 
 	'auto update': true,
-	'mongo': `${ process.env.MONDODB_URL}`,
+	'mongo': `${ process.env.MONGODB_URI}`,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
