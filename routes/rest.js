@@ -1,7 +1,7 @@
-var keystone = require('keystone');
+const keystone = require('keystone');
 
 // Pass your keystone instance to the module
-var restful = require('restful-keystone')(keystone);
+const restful = require('restful-keystone')(keystone);
 
 // ...
 
