@@ -82,7 +82,7 @@ function reserveItem(item, firstname, lastname, email) {
 exports = module.exports = function (req, res) {
     const {firstname, lastname, email} = req.body;
 
-    Steps.model.findOne({_id: req.params.id, /*isSold: false, isReserved: false*/})
+    Steps.model.findOne({_id: req.params.id, isSold: false, isReserved: false})
         .exec((err, item) => {
             if (err) {
                 return res.status(500).send(err.message);
