@@ -1,18 +1,18 @@
 const keystone = require('keystone');
-const Twig = require('twig');
 const sendmail = require('sendmail')();
-
+var {renderFile} = require('twig');
 const Steps = keystone.list('Step');
 
-/**
- *
- * @param sponsor
- * @param step
- * @return {Promise<any>}
- */
-function renderMailTemplate(sponsor, step) {
+function renderMailTemplate(type, sponsor, step) {
     return new Promise((res, rej) => {
-        Twig.renderFile(__dirname + '../../templates/email/confirmation.twig', {sponsor, step}, (err, html) => {
+        renderFile(`./templates/email/${type}.twig`, {
+            headerText: 'Vorstadtsounds',
+            title: '',
+            headerImageUrl: "http://d8mlrvfocjtax.cloudfront.net/festivals/14_Vorstadtsounds_original.png?1458201998",
+            backendUrl: `${process.env.BACKEND_URL}/steps/${step._id}`,
+            sponsor,
+            step,
+        }, (err, html) => {
             if (err) {
                 return rej(err);
             }
@@ -27,12 +27,12 @@ function renderMailTemplate(sponsor, step) {
  * @param html
  * @return {Promise<any>}
  */
-function sendMail(sponsor, html) {
+function sendMail(to, html) {
     return new Promise((res, rej) => {
         sendmail({
             from: 'no-reply@vorstadtsounds.ch',
             //to: 'sponsorMail, kontakt@163.com ',
-            to: `faebeee@gmail.com`,
+            to,
             subject: 'Treppen Sponsor',
             html: html,
         }, (err, reply) => {
@@ -51,41 +51,57 @@ function sendMail(sponsor, html) {
  * @return {Promise<any>}
  */
 function sendMailNotification(sponsor, step) {
-    return renderMailTemplate(sponsor, step)
+    return renderMailTemplate('order', sponsor, step)
         .then((html) => {
-            return sendMail(sponsor, html)
+            return sendMail(`faebeee@gmail.com`, html)
+        })
+        .then(() => {
+            return renderMailTemplate('confirmation', sponsor, step)
+        })
+        .then((html) => {
+            //return sendMail(sponsor.email, html)
+            return sendMail(`faebeee@gmail.com`, html)
         });
 }
 
-
-exports = module.exports = function (req, res) {
-    const {firstname, lastname, email} = req.body;
-
-    Steps.model.findOne({_id: req.params.id, /*isSold: false, isReserved: false*/}).exec(function (err, item) {
-        if (err) {
-            return res.status(500).send(err.message);
-        }
-
-        if (!item) {
-            return res.status(404).send('Not found');
-        }
-
+function reserveItem(item, firstname, lastname, email) {
+    return new Promise((res, rej) => {
         item.update({
             sponsor: {first: firstname, last: lastname},
             sponsor_email: email,
             isReserved: true
         }, function (err, raw) {
             if (err) {
+                return rej(err);
+            }
+            return res(raw);
+        });
+    })
+}
+
+exports = module.exports = function (req, res) {
+    const {firstname, lastname, email} = req.body;
+
+    Steps.model.findOne({_id: req.params.id, /*isSold: false, isReserved: false*/})
+        .exec((err, item) => {
+            if (err) {
                 return res.status(500).send(err.message);
             }
 
-            sendMailNotification({firstname, lastname, email}, item)
+            if (!item) {
+                return res.status(404).send('Not found');
+            }
+
+            reserveItem(item, firstname, lastname, email)
                 .then(() => {
-                    return res.status(201).send(raw);
+                    return sendMailNotification({firstname, lastname, email}, item);
+                })
+                .then(() => {
+                    return res.status(201).send({});
                 })
                 .catch((err) => {
                     return res.status(500).send(err.message);
                 })
         });
-    });
+
 };
