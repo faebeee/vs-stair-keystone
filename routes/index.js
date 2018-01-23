@@ -40,6 +40,6 @@ exports = module.exports = function (app) {
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-XSRF-TOKEN');
         res.sendStatus(200);
     });
-    app.post('/api/steps/:id/reserve', keystone.middleware.cors, routes.controllers.reserve);
+    app.post('/api/steps/:id/reserve', routes.controllers.reserve);
     rest(app);
 };
