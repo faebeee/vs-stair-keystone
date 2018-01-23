@@ -30,12 +30,16 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 const routes = {
-	controllers: importRoutes('./controllers'),
+    controllers: importRoutes('./controllers'),
 };
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-	app.all('/api/*', keystone.middleware.cors);
-	app.post('/api/steps/:id/reserve', keystone.middleware.cors, routes.controllers.reserve);
-	rest(app);
+    app.all('/api/*', keystone.middleware.cors);
+    app.options('/api*', function (req, res) {
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-XSRF-TOKEN');
+        res.sendStatus(200);
+    });
+    app.post('/api/steps/:id/reserve', keystone.middleware.cors, routes.controllers.reserve);
+    rest(app);
 };
