@@ -10,7 +10,7 @@ exports = module.exports = function (app) {
     restful.expose({
         Step: {
             path: "steps",
-            methods: ["retrieve"],
+            methods: ["list", "retrieve"],
             show: ["name", "price", "sponsor.first", "isReserved", "isSold"]
         }
     }).start();
