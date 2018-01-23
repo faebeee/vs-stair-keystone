@@ -5,9 +5,12 @@ const restful = require('restful-keystone')(keystone);
 
 // ...
 
-exports = module.exports = function( app ){
-  //Explicitly define which lists we want exposed
-  restful.expose({
-    Step : true
-  }).start();
+exports = module.exports = function (app) {
+    //Explicitly define which lists we want exposed
+    restful.expose({
+        Step: {
+            methods: ["retrieve"],
+            show: ["name", "price", "sponsor.first", "isReserved", "isSold"]
+        }
+    }).start();
 };
