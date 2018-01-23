@@ -9,6 +9,7 @@ exports = module.exports = function (app) {
     //Explicitly define which lists we want exposed
     restful.expose({
         Step: {
+            path: "steps",
             methods: ["retrieve"],
             show: ["name", "price", "sponsor.first", "isReserved", "isSold"]
         }
