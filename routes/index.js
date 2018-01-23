@@ -35,7 +35,8 @@ const routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-	//app.all('/api*', keystone.middleware.cors);
+	app.all('/api*', keystone.middleware.cors);
+	app.options('/api/steps/:id/reserve', keystone.middleware.cors);
 	app.post('/api/steps/:id/reserve', routes.controllers.reserve);
 	rest(app);
 };
