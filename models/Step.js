@@ -19,5 +19,5 @@ Step.add({
 /**
  * Registration
  */
-Step.defaultColumns = 'name, price';
+Step.defaultColumns = 'name, price, sponsor_email, isReserved, isSold';
 Step.register();
