@@ -14,9 +14,9 @@
             </div>
         </div>
 
-        <StepDetailComponent :step="step" v-if="step"/>
+        <StepDetailComponent :stepId="id" v-if="id"/>
 
-        <ReservationForm :step="step" v-if="step"/>
+        <ReservationForm :stepId="id" v-if="id"/>
     </div>
 </template>
 
@@ -41,17 +41,5 @@
                 step: null
             }
         },
-        mounted() {
-            this.load();
-        },
-        methods: {
-            load() {
-                this.$step.get(this.id)
-                    .then((step) => {
-                        this.step = step;
-                    })
-            }
-        }
-
     }
 </script>

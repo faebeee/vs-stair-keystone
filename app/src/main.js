@@ -11,11 +11,9 @@ import RavenVue from 'raven-js/plugins/vue';
 import MCC from 'materialize-css/dist/js/materialize.min';
 
 import App from './App.vue'
-
 import SponsorPlugin from './plugins/SponsorPlugin';
 import StepPlugin from './plugins/StepPlugin';
-import routes from './routes';
-
+import router from './router';
 import Errormessage from '@/components/error-message/error-message.vue';
 import Loader from '@/components/loader/loader.vue';
 
@@ -40,9 +38,6 @@ Vue.component('error-message', Errormessage);
 
 Vue.config.lang = 'de';
 
-const router = new VueRouter({
-    routes
-});
 
 const i18n = new VueI18n({
     locale: Vue.config.lang,

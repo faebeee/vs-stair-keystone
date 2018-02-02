@@ -11,9 +11,12 @@
         "stepprice": "Preis",
         "sponsoredby": "Gesponsert von",
         "reservationtitle": "Provisorische Reservation",
-        "landingPageTest": "Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,",
+        "landingPageText": "Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,",
+        "confirmationText": "Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,",
         "reservationtext": "Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,",
-        "stepListTitle": "Treppen Stufen"
+        "stepListTitle": "Treppen Stufen",
+        "back": "Zurück",
+        "listTitle": "Verfügbare Tritte"
     },
     "error": {
         "duplicateMail": "E-Mail wird bereits verwendet.",

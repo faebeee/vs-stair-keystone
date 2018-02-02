@@ -11,10 +11,12 @@
                 </transition>
             </div>
         </div>
+        <FooterComponent/>
     </div>
 </template>
 
 <script>
+    import FooterComponent from './components/footer/footer.vue'
     import HeaderComponent from './components/header/header.vue'
     import MainContentComponent from './components/main-content/main-content.vue'
 
@@ -22,7 +24,8 @@
         name: 'app',
         components: {
             HeaderComponent,
-            MainContentComponent
+            MainContentComponent,
+            FooterComponent
         }
     }
 </script>

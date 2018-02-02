@@ -20,7 +20,7 @@ export default class StepPlugin {
         return Vue.http.get(this.config.api + `/steps/${id}`)
             .then((response) => {
                 return response.body.step;
-            })
+            });
     }
 
 

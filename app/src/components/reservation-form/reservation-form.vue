@@ -5,58 +5,64 @@
                 <error-message>
                     {{ $t('error.stepnotavailable') }}
                 </error-message>
+                <router-link :to="{name: 'home'}" class="btn-flat">
+                    {{ $t("message.back") }}
+                </router-link>
             </div>
         </transition>
 
-        <transition name="fade">
-            <error-message v-if="errorMessage">
-                {{ $t(errorMessage) }}
-            </error-message>
-        </transition>
-
-        <div class="col s12">
-            <div v-if="!isLoading">
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <input id="firstname" type="text" class="validate" v-model="firstname">
-                        <label for="firstname">
-                            {{ $t("form.firstname") }}
-                        </label>
-                    </div>
-                    <div class="input-field col s12 m6">
-                        <input id="lastname" type="text" class="validate" v-model="lastname">
-                        <label for="lastname">
-                            {{ $t("form.lastname") }}
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" v-model="email">
-                        <label for="email">
-                            {{ $t("form.mail") }}
-                        </label>
-                    </div>
-                </div>
-            </div>
+        <div v-if="isAvailable">
 
             <transition name="fade">
-                <div class="row" v-if="isLoading">
-                    <loader/>
-                </div>
+                <error-message v-if="errorMessage">
+                    {{ $t(errorMessage) }}
+                </error-message>
             </transition>
 
+            <div class="col s12">
+                <div v-if="!isLoading">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="firstname" type="text" v-model="firstname">
+                            <label for="firstname">
+                                {{ $t("form.firstname") }}
+                            </label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="lastname" type="text" v-model="lastname">
+                            <label for="lastname">
+                                {{ $t("form.lastname") }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" v-model="email">
+                            <label for="email">
+                                {{ $t("form.mail") }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="row">
-                <div class="col s12">
-                    <button @click="onSubmit" class="btn reservation-form--button"
-                            :disabled="!isFormValid || !isAvailable ">
-                        {{ $t("message.submit") }}
-                    </button>
+                <transition name="fade">
+                    <div class="row" v-if="isLoading">
+                        <loader/>
+                    </div>
+                </transition>
 
-                    <router-link :to="{name:'home'}" class="btn-flat">
-                        {{ $t("message.cancel") }}
-                    </router-link>
+
+                <div class="row" v-if="!isLoading">
+                    <div class="col s12">
+                        <button @click="onSubmit" class="btn reservation-form--button"
+                                :disabled="!isFormValid || !isAvailable ">
+                            {{ $t("message.submit") }}
+                        </button>
+
+                        <router-link :to="{name:'home'}" class="btn-flat">
+                            {{ $t("message.cancel") }}
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,15 +71,13 @@
 
 <script>
 
-    import Vue from 'vue';
-    import Joi from 'joi';
-    import Promise from 'bluebird';
     import reservationValidation from '@/validations/reservation';
 
     export default {
         props: {
-            step: {
-                type: Object,
+
+            stepId: {
+                type: String,
                 required: true
             }
         },
@@ -88,6 +92,8 @@
                 firstname: null,
                 lastname: null,
                 invalidInput: false,
+
+                step: null
             }
         },
 
@@ -102,7 +108,21 @@
             }
         },
 
+        mounted() {
+            this.load();
+        },
+
         methods: {
+            load() {
+                this.isLoading = true;
+                this.$step.get(this.stepId)
+                    .then((step) => {
+                        this.step = step;
+                    })
+                    .finally(() => {
+                        this.isLoading = false;
+                    })
+            },
             onSubmit() {
                 this.isLoading = true;
                 this.$step.markAsReserved(this.step, {
@@ -110,6 +130,13 @@
                     lastname: this.lastname,
                     email: this.email,
                 })
+                    .then(() => {
+                        this.firstname = null;
+                        this.lastname = null;
+                        this.email = null;
+
+                        this.$router.push({name: 'confirmation'});
+                    })
                     .catch(e => {
                         if (e.status === 409) {
                             this.errorMessage = 'error.duplicateMail';
@@ -118,6 +145,7 @@
                         }
                     })
                     .finally(() => {
+                        this.load();
                         this.isLoading = false;
                     })
             }

@@ -4,7 +4,7 @@
             <img class="main-content--image" src="/static/img/kleber%20gueggel.png">
         </div>
         <p class="flow-text">
-            {{$t("message.landingPageTest")}}
+            {{$t("message.landingPageText")}}
         </p>
     </div>
 </template>

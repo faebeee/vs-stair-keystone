@@ -1,5 +1,8 @@
 <template>
     <div class="step-list">
+        <div class="collection-header ">
+            <h4>{{ $t('message.listTitle') }}</h4>
+        </div>
         <StepLink v-for="step in steps" :step="step" :key="step._id"/>
     </div>
 </template>

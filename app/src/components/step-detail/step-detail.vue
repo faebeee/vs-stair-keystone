@@ -11,7 +11,7 @@
 
                 <tbody>
                 <tr>
-                    <td>#{{step.name}}</td>
+                    <td>{{step.name}}</td>
                     <td>CHF {{step.price }}</td>
                 </tr>
                 </tbody>
@@ -22,26 +22,37 @@
 
 <script>
 
-    import Vue from 'vue';
-
-    import ReservationForm from '../reservation-form/reservation-form.vue';
-
     export default {
-        components: {
-            ReservationForm,
-        },
-
         props: {
-            step: {
-                type: Object,
+            stepId: {
+                type: String,
                 required: true
             }
         },
 
         data() {
             return {
-                showReservationForm: false
+                showReservationForm: false,
+                step: null,
             }
         },
+
+        mounted() {
+            this.load();
+        },
+
+        methods: {
+            load() {
+                this.isLoading = true;
+                this.$step.get(this.stepId)
+                    .then((step) => {
+                        this.step = step;
+                    })
+                    .finally(() => {
+                        this.isLoading = false;
+                    });
+            },
+        }
+
     }
 </script>
