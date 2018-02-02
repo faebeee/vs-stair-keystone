@@ -42,6 +42,11 @@
             'step'
         ]),
 
+        beforeRouteLeave(from, to, next) {
+            this.$store.commit('setStep', null);
+            next();
+        },
+
         mounted() {
             this.load();
         },
@@ -50,7 +55,6 @@
             load() {
                 this.$step.get(this.id)
                     .then((step) => {
-                        console.log(step);
                         this.$store.commit('setStep', step.step);
                     });
             }

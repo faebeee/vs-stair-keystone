@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        stepNumber: 0
+        step: 0
     },
 
     mutations: {
