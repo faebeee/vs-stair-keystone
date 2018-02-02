@@ -1,0 +1,7 @@
+@import "~materialize-css/sass/components/color";
+
+$c--highlight-text: #0095ff;
+
+$primary-color: $c--highlight-text;
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 15%);

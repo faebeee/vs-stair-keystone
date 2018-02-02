@@ -1,0 +1,17 @@
+.step-link {
+    & {
+        width: 100%;
+        padding: 10px;
+        border-bottom: solid 1px #333;
+        transition: padding 200ms ease-in-out;
+        font-size: 1.4rem;
+        color: $c--highlight-text;
+    }
+
+    &:hover{
+        padding-left: 40px;
+    }
+    &.step-link--disabled {
+        //pointer-events: none;
+    }
+}

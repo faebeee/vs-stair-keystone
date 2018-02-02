@@ -1,0 +1,16 @@
+.slide-leave-active,
+.slide-enter-active {
+    position: absolute;
+    transition: 200ms;
+    width: 100%;
+}
+
+.slide-enter {
+    transform: translate(100%, 0);
+    opacity: 0;
+}
+
+.slide-leave-to {
+    transform: translate(100%, 0);
+    opacity: 0;
+}
