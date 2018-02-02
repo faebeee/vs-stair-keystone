@@ -11,7 +11,7 @@ exports = module.exports = function (app) {
         Step: {
             path: "steps",
             methods: ["list", "retrieve"],
-            show: ["name", "price", "sponsor.first", "isReserved", "isSold"]
+            show: ["name", "price", "sponsor.first", "isReserved", "isSold", "step"]
         }
     }).start();
 };

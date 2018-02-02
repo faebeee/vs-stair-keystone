@@ -24,6 +24,7 @@
 
     import StepDetailComponent from '@/components/step-detail/step-detail';
     import ReservationForm from '@/components/reservation-form/reservation-form';
+    import {mapState} from 'vuex'
 
     export default {
         components: {
@@ -36,10 +37,23 @@
                 type: String
             }
         },
-        data() {
-            return {
-                step: null
-            }
+
+        computed: mapState([
+            'step'
+        ]),
+
+        mounted() {
+            this.load();
         },
+
+        methods: {
+            load() {
+                this.$step.get(this.id)
+                    .then((step) => {
+                        console.log(step);
+                        this.$store.commit('setStep', step.step);
+                    });
+            }
+        }
     }
 </script>

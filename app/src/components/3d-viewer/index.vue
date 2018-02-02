@@ -13,6 +13,7 @@
 
     import * as BABYLON from 'babylonjs';
     import 'babylonjs-loaders';
+    import {mapState} from 'vuex';
 
     export default {
         data() {
@@ -23,6 +24,10 @@
                 stairObject: null,
             }
         },
+        computed: mapState([
+            'step'
+        ]),
+
         mounted() {
             this.init();
         },
@@ -57,8 +62,8 @@
                 this.stairObject.loadedMeshes.forEach((mesh) => {
                     mesh.rotation.y += 0.005;
 
-                    if (this.$store.state.stepId) {
-                        console.log(this.$store.state.stepId);
+                    if (this.step) {
+
                     }
                 });
             },
