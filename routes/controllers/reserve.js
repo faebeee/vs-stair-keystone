@@ -3,6 +3,13 @@ const sendmail = require('sendmail')();
 var {renderFile} = require('twig');
 const Steps = keystone.list('Step');
 
+/**
+ *
+ * @param type
+ * @param sponsor
+ * @param step
+ * @return {Promise<any>}
+ */
 function renderMailTemplate(type, sponsor, step) {
     return new Promise((res, rej) => {
         renderFile(`./templates/email/${type}.twig`, {
@@ -31,7 +38,6 @@ function sendMail(to, html) {
     return new Promise((res, rej) => {
         sendmail({
             from: 'no-reply@vorstadtsounds.ch',
-            //to: 'sponsorMail, kontakt@163.com ',
             to,
             subject: 'Treppen Sponsor',
             html: html,
@@ -59,11 +65,18 @@ function sendMailNotification(sponsor, step) {
             return renderMailTemplate('confirmation', sponsor, step)
         })
         .then((html) => {
-            //return sendMail(sponsor.email, html)
-            return sendMail(`faebeee@gmail.com`, html)
+            return Promise.all(sendMail(sponsor.email, html), sendMail(`faebeee@gmail.com`, html));
         });
 }
 
+/**
+ *
+ * @param item
+ * @param firstname
+ * @param lastname
+ * @param email
+ * @return {Promise<any>}
+ */
 function reserveItem(item, firstname, lastname, email) {
     return new Promise((res, rej) => {
         item.update({
@@ -79,6 +92,10 @@ function reserveItem(item, firstname, lastname, email) {
     })
 }
 
+/**
+ *
+ * @type {module.exports}
+ */
 exports = module.exports = function (req, res) {
     const {firstname, lastname, email} = req.body;
 
