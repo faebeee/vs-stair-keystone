@@ -134,7 +134,6 @@
                         this.firstname = null;
                         this.lastname = null;
                         this.email = null;
-
                         this.$router.push({name: 'confirmation'});
                     })
                     .catch(e => {

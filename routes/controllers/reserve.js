@@ -15,7 +15,7 @@ function renderMailTemplate(type, sponsor, step) {
         renderFile(`./templates/email/${type}.twig`, {
             headerText: 'Vorstadtsounds',
             title: '',
-            headerImageUrl: `${process.env.BACKEND_URL}/static/Vorstadtsounds_original.png`,
+            headerImageUrl: `${process.env.BACKEND_URL}/static/img/Vorstadtsounds_original.png`,
             backendUrl: `${process.env.BACKEND_URL}/steps/${step._id}`,
             sponsor,
             step,
@@ -65,7 +65,7 @@ function sendMailNotification(sponsor, step) {
             return renderMailTemplate('confirmation', sponsor, step)
         })
         .then((html) => {
-            return Promise.all(sendMail(sponsor.email, html), sendMail(`faebeee@gmail.com`, html));
+            return Promise.all([sendMail(sponsor.email, html), sendMail(`faebeee@gmail.com`, html)]);
         });
 }
 

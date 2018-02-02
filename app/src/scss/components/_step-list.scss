@@ -6,4 +6,10 @@
     .collection-header {
         width: 100%;
     }
+
+    @media screen and(max-width: 992px) {
+        & {
+            margin: 100px 0;
+        }
+    }
 }
