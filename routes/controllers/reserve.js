@@ -8,7 +8,7 @@ function renderMailTemplate(type, sponsor, step) {
         renderFile(`./templates/email/${type}.twig`, {
             headerText: 'Vorstadtsounds',
             title: '',
-            headerImageUrl: "http://d8mlrvfocjtax.cloudfront.net/festivals/14_Vorstadtsounds_original.png?1458201998",
+            headerImageUrl: `${process.env.BACKEND_URL}/static/Vorstadtsounds_original.png`,
             backendUrl: `${process.env.BACKEND_URL}/steps/${step._id}`,
             sponsor,
             step,
