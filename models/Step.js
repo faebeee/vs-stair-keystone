@@ -14,10 +14,11 @@ Step.add({
 	sponsor_email: {type: Types.Email},
 	isReserved: {type: Types.Boolean},
 	isSold: {type: Types.Boolean},
+	step: {type: Types.Number},
 });
 
 /**
  * Registration
  */
-Step.defaultColumns = 'name, price, sponsor_email, isReserved, isSold';
+Step.defaultColumns = 'id, number, name, price, sponsor_email, isReserved, isSold';
 Step.register();
