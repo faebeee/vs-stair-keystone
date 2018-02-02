@@ -9,8 +9,6 @@
 
 <script>
 
-    import Vue from 'vue';
-
     import ReservationForm from '../reservation-form/reservation-form.vue';
 
     export default {
