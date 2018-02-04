@@ -65,8 +65,8 @@
                 this.createScene();
                 this.createCamera();
 
-                this.showCurrentIndicator(11);
-                //this.showCurrentIndicator(this.step);
+                //this.showCurrentIndicator(11);
+                this.showCurrentIndicator(this.step);
 
                 this.engine.displayLoadingUI();
 
