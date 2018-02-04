@@ -8,7 +8,7 @@
                 'stair-viewer--canvas__active': !!stairObject,
                 'stair-viewer--canvas__fully-active' : step
                 }"
-                width="480" height="480">
+                width="480" height="600">
 
         </canvas>
     </div>
@@ -19,7 +19,7 @@
     import * as BABYLON from 'babylonjs';
     import 'babylonjs-loaders';
     import {mapState} from 'vuex';
-    import config from './indicator-config';
+    import config from './indicator-config.js';
 
     export default {
         data() {
@@ -65,7 +65,8 @@
                 this.createScene();
                 this.createCamera();
 
-                this.showCurrentIndicator(this.step);
+                this.showCurrentIndicator(11);
+                //this.showCurrentIndicator(this.step);
 
                 this.engine.displayLoadingUI();
 
@@ -77,6 +78,8 @@
             showCurrentIndicator(step) {
                 const {pos, size, camera} = config[step - 1];
                 this.createIndicator(pos.x, pos.y, pos.z, size.w, size.h, size.d);
+
+
                 this.camera.setPosition(new BABYLON.Vector3(camera.x, camera.y, camera.z));
             },
             createIndicator(x, y, z, w, h, d) {
@@ -108,7 +111,7 @@
                 this.camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 0, 0, 5, new BABYLON.Vector3(0, 3, 0), this.scene);
                 this.camera.setPosition(new BABYLON.Vector3(0, 350, -1000));
                 this.camera.setTarget(new BABYLON.Vector3(0, 250, 0));
-                this.camera.attachControl(this.canvas, true);
+                //this.camera.attachControl(this.canvas, true);
             },
 
             createScene() {
