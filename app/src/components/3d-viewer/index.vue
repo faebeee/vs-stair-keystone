@@ -19,6 +19,7 @@
     import * as BABYLON from 'babylonjs';
     import 'babylonjs-loaders';
     import {mapState} from 'vuex';
+    import config from './indicator-config';
 
     export default {
         data() {
@@ -28,12 +29,23 @@
                 canvas: null,
                 camera: null,
                 stairObject: null,
+                indicatorBox: null,
             }
         },
         computed: mapState([
             'step'
         ]),
 
+        watch: {
+            step(newVal) {
+                if (newVal === null) {
+                    this.hideIndicator();
+                    return;
+                }
+
+                this.showCurrentIndicator(newVal);
+            },
+        },
         mounted() {
             this.init();
         },
@@ -50,58 +62,71 @@
 
                     }
                 };
-                this.scene = this.createScene();
+                this.createScene();
+                this.createCamera();
+
+                this.showCurrentIndicator(this.step);
 
                 this.engine.displayLoadingUI();
 
 
                 this.engine.runRenderLoop(() => {
                     this.scene.render();
-
-                    if (this.stairObject) {
-                        this.update();
-                    }
                 });
             },
-            update() {
-                this.stairObject.loadedMeshes.forEach((mesh) => {
-                    if(!this.step){
-                        mesh.rotation.y += 0.005;
-                    }else{
-                        mesh.rotation.y = 3.14;
-                    }
-                });
+            showCurrentIndicator(step) {
+                const {pos, size, camera} = config[step - 1];
+                this.createIndicator(pos.x, pos.y, pos.z, size.w, size.h, size.d);
+                this.camera.setPosition(new BABYLON.Vector3(camera.x, camera.y, camera.z));
             },
-            createScene() {
-                // This creates a basic Babylon Scene object (non-mesh)
-                var scene = new BABYLON.Scene(this.engine);
+            createIndicator(x, y, z, w, h, d) {
+                var boxMaterial = new BABYLON.StandardMaterial("myMaterial", this.scene);
 
-                new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+                this.indicatorBox = BABYLON.MeshBuilder.CreateBox("box", {
+                    height: h,
+                    width: w,
+                    depth: d
+                }, this.scene);
 
-                this.camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 0, 0, 5, new BABYLON.Vector3(0, 3, 0), scene);
+                this.indicatorBox.position = new BABYLON.Vector3(x, y, z);
+
+                boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
+                boxMaterial.specularColor = new BABYLON.Color3(0.5, 0, 0);
+                boxMaterial.emissiveColor = new BABYLON.Color3(1, 0, 0);
+                boxMaterial.ambientColor = new BABYLON.Color3(0.23, 0, 0);
+                boxMaterial.wireframe = true;
+                this.indicatorBox.material = boxMaterial;
+
+            },
+
+            hideIndicator() {
+                this.scene.removeMesh(this.indicatorBox);
+                this.indicatorBox = null;
+            },
+
+            createCamera() {
+                this.camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 0, 0, 5, new BABYLON.Vector3(0, 3, 0), this.scene);
                 this.camera.setPosition(new BABYLON.Vector3(0, 350, -1000));
                 this.camera.setTarget(new BABYLON.Vector3(0, 250, 0));
+                this.camera.attachControl(this.canvas, true);
+            },
 
-                scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+            createScene() {
+                // This creates a basic Babylon Scene object (non-mesh)
+                this.scene = new BABYLON.Scene(this.engine);
+                this.scene.ambientColor = new BABYLON.Color3(1, 1, 1);
+                //this.scene.forceWireframe = true;
+                this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 
-                //camera.attachControl(this.canvas, true);
-                var lightHemi = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 10, 10), scene);
-                var sun = new BABYLON.PointLight("Sunshine", new BABYLON.Vector3(20, 100, 2), scene);
+                //var lightHemi = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 1000, 10), scene);
+                new BABYLON.PointLight("Sunshine", new BABYLON.Vector3(20, 500, 2), this.scene);
 
-
-                var loader = new BABYLON.AssetsManager(scene);
-
+                var loader = new BABYLON.AssetsManager(this.scene);
                 var stair = loader.addMeshTask("stair", "", "/static/object/", "Exterior_Staircases_Landing_Style.obj");
                 stair.onSuccess = (t) => {
-                    console.log(t);
                     this.stairObject = t;
                     this.engine.hideLoadingUI();
-
                 };
-
-                //stair.position.y = -5;
-
-                //stair.position.y
 
                 loader.onFinish = () => {
                     this.engine.runRenderLoop(() => {
@@ -110,10 +135,7 @@
                 };
 
                 loader.load();
-                return scene;
             }
-
-
         }
     }
 </script>

@@ -3,6 +3,7 @@
         <div class="collection-header ">
             <h4>{{ $t('message.listTitle') }}</h4>
         </div>
+        <loader v-if="isLoading"/>
         <StepLink v-for="step in steps" :step="step" :key="step._id"/>
     </div>
 </template>
@@ -18,6 +19,7 @@
         data() {
             return {
                 steps: [],
+                isLoading : true,
             };
         },
 
@@ -27,9 +29,13 @@
 
         methods: {
             load() {
+                this.isLoading = true;
                 this.$step.getAll()
                     .then((response) => {
                         this.steps = response;
+                    })
+                    .finally( () => {
+                        this.isLoading = false;
                     })
             }
         }
