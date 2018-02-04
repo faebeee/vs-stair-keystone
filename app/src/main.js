@@ -32,8 +32,8 @@ Vue.use(VueRouter);
 
 Vue.use(SponsorPlugin);
 Vue.use(StepPlugin, {
-    //api: 'https://vs-stair-prod.herokuapp.com/api'
-    api: 'https://vs-stair-dev.herokuapp.com/api'
+    api: 'https://vs-stair-prod.herokuapp.com/api'
+    //api: 'https://vs-stair-dev.herokuapp.com/api'
 });
 
 Vue.component('loader', Loader);
