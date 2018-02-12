@@ -47,7 +47,8 @@ export default class StepPlugin {
     getAll() {
         return Vue.http.get(this.config.api + '/steps')
             .then((data) => {
-                return data.body.steps;
+                const steps = data.body.steps;
+                return steps.reverse();
             })
     }
 }
