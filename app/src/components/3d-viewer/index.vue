@@ -53,6 +53,7 @@
             init() {
                 this.canvas = this.$refs.canvas;
                 this.engine = new BABYLON.Engine(this.canvas, true);
+                BABYLON.OBJFileLoader.OPTIMIZE_WITH_UV = true;
 
                 this.engine.loadingScreen = {
                     displayLoadingUI() {
@@ -121,8 +122,13 @@
                 //this.scene.forceWireframe = true;
                 this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 
-                //var lightHemi = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 1000, 10), scene);
-                new BABYLON.PointLight("Sunshine", new BABYLON.Vector3(20, 500, 2), this.scene);
+                //var lightHemi = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 1000, 10), this.scene);
+                //new BABYLON.PointLight("Sunshine", new BABYLON.Vector3(20, 500, 2), this.scene);
+                let light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), this.scene);
+                light.diffuse = new BABYLON.Color3(1, 0, 0);
+                light.specular = new BABYLON.Color3(0, 1, 0);
+                light.intensity = 1000;
+
 
                 var loader = new BABYLON.AssetsManager(this.scene);
                 var stair = loader.addMeshTask("stair", "", "/static/object/", "Exterior_Staircases_Landing_Style.obj");
