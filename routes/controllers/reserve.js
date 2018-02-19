@@ -59,13 +59,13 @@ function sendMail(to, html) {
 function sendMailNotification(sponsor, step) {
     return renderMailTemplate('order', sponsor, step)
         .then((html) => {
-            return sendMail(`faebeee@gmail.com`, html)
+            return Promise.all([sendMail(`faebeee@gmail.com`, html), sendMail(`kontakt@vorstadtsounds.ch`, html)]);
         })
         .then(() => {
             return renderMailTemplate('confirmation', sponsor, step)
         })
         .then((html) => {
-            return Promise.all([sendMail(sponsor.email, html), sendMail(`faebeee@gmail.com`, html)]);
+            return Promise.all([sendMail(sponsor.email, html)]);
         });
 }
 
