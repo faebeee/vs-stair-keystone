@@ -1,7 +1,7 @@
 <template>
     <div class="step-link" v-if="step" :class="{'step-link--disabled': !isAvailable}">
         <router-link :to="{name:'reservation', params:{id:step._id}}">
-            {{ step.name }} <small v-if="!isAvailable">{{$t('message.sponsoredby')}} <i>{{step.sponsor.first}} {{ step.sponsor.last}}</i></small>
+            {{ step.name }} <small v-if="!isAvailable && step.isSold">{{$t('message.sponsoredby')}} <i>{{step.sponsor.first}} {{ step.sponsor.last}}</i></small>
             <small v-if="isAvailable">CHF {{ step.price }}.-</small>
         </router-link>
     </div>

@@ -18,5 +18,9 @@
 
     &.step-link--disabled {
         pointer-events: none;
+        color: $c--main-color--disabled;
+        a {
+            color: $c--main-color--disabled;
+        }
     }
 }
