@@ -59,7 +59,7 @@ function sendMail(to, html) {
 function sendMailNotification(sponsor, step) {
     return renderMailTemplate('order', sponsor, step)
         .then((html) => {
-            return Promise.all([sendMail(`faebeee@gmail.com`, html), sendMail(`kontakt@vorstadtsounds.ch`, html)]);
+            return Promise.all([sendMail(`faebeee@gmail.com`, html), sendMail(`sponsoring@vorstadtsounds.ch`, html)]);
         })
         .then(() => {
             return renderMailTemplate('confirmation', sponsor, step)

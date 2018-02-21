@@ -1,0 +1,26 @@
+.step-link {
+    & {
+        width: 100%;
+        padding: 10px;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+        font-size: 1.4rem;
+        color: $c--main-color;
+
+        a {
+            color: $c--main-color;
+            transition: padding 200ms ease-in-out;
+
+            &:hover {
+                padding-left: 40px;
+            }
+        }
+    }
+
+    &.step-link--disabled {
+        pointer-events: none;
+        color: $c--main-color--disabled;
+        a {
+            color: $c--main-color--disabled;
+        }
+    }
+}

@@ -1,9 +1,0 @@
-@import "~materialize-css/sass/components/color";
-
-$c--highlight-text: #E11924;
-$c--main-color: #E11924;
-$c--main-color--disabled: rgba(62, 60, 61, 0.79);
-
-$primary-color: $c--highlight-text;
-$primary-color-light: lighten($primary-color, 15%);
-$primary-color-dark: darken($primary-color, 15%);
