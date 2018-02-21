@@ -143,7 +143,6 @@
                         }
                     })
                     .finally(() => {
-                        this.load();
                         this.isLoading = false;
                     })
             }
