@@ -51,6 +51,7 @@
             this.init();
         },
         methods: {
+            
             init() {
                 this.canvas = this.$refs.canvas;
                 this.engine = new BABYLON.Engine(this.canvas, true);
@@ -77,13 +78,19 @@
                     this.scene.render();
                 });
             },
+
             showCurrentIndicator(step) {
+                if(!config[step - 1]){
+                    return;
+                }
+
                 const {pos, size, camera} = config[step - 1];
                 this.createIndicator(pos.x, pos.y, pos.z, size.w, size.h, size.d);
 
 
                 this.camera.setPosition(new BABYLON.Vector3(camera.x, camera.y, camera.z));
             },
+
             createIndicator(x, y, z, w, h, d) {
                 var boxMaterial = new BABYLON.StandardMaterial("myMaterial", this.scene);
 
