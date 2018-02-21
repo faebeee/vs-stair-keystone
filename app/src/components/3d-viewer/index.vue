@@ -16,8 +16,6 @@
 
 <script>
 
-    import * as BABYLON from 'babylonjs';
-    import 'babylonjs-loaders';
     import {mapState} from 'vuex';
     import config from './indicator-config.js';
 
@@ -131,7 +129,7 @@
 
 
                 var loader = new BABYLON.AssetsManager(this.scene);
-                var stair = loader.addMeshTask("stair", "", "/static/object/", "Exterior_Staircases_Landing_Style.obj");
+                var stair = loader.addMeshTask("stair", "", "static/object/", "Exterior_Staircases_Landing_Style.obj");
                 stair.onSuccess = (t) => {
                     this.stairObject = t;
                     this.engine.hideLoadingUI();

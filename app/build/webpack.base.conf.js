@@ -39,13 +39,6 @@ module.exports = {
             "@": resolve("src")
         }
     },
-    plugins: [
-        new ImageminPlugin({
-            pngquant: {
-                quality: "80"
-            }
-        })
-    ],
     module: {
         rules: [
             {
@@ -60,11 +53,10 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: "babel-loader",
-                include: [
-                    resolve("src"),
-                    resolve("test"),
-                    resolve("node_modules/webpack-dev-server/client")
-                ]
+                include: [/node_modules\/joi/],
+                query: {
+                    presets: ["es2015"]
+                }
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
