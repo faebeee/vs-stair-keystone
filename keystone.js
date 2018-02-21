@@ -48,6 +48,8 @@ keystone.set('locals', {
     editable: keystone.content.editable,
 });
 
+keystone.set("admin path", "admin");
+
 // Load your project's Routes
 keystone.set('routes', require('./routes'));
 keystone.set('cors allow origin', true);
