@@ -1,6 +1,6 @@
 <template>
     <div class="stair-viewer" :class="{
-                'stair-viewer__active': step,
+                'stair-viewer__active': isLoaded,
                 }">
         <canvas class="stair-viewer--canvas"
                 ref="canvas"
@@ -11,6 +11,8 @@
                 width="480" height="600">
 
         </canvas>
+
+        <loader v-if="!isLoaded"></loader>
     </div>
 </template>
 
@@ -28,6 +30,7 @@
                 camera: null,
                 stairObject: null,
                 indicatorBox: null,
+                isLoaded: false,
             }
         },
         computed: mapState([
@@ -131,6 +134,7 @@
                 var loader = new BABYLON.AssetsManager(this.scene);
                 var stair = loader.addMeshTask("stair", "", "static/object/", "Exterior_Staircases_Landing_Style.obj");
                 stair.onSuccess = (t) => {
+                    this.isLoaded = true;
                     this.stairObject = t;
                     this.engine.hideLoadingUI();
                 };
