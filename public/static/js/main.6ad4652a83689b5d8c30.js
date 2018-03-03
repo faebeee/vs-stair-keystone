@@ -1,16 +1,5 @@
 webpackJsonp([0],{
 
-/***/ "+KOr":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"main-content"},[_c('Viewer'),_vm._v(" "),(!_vm.step)?_c('div',{staticClass:"main-content--image-wrapper"},[_c('img',{staticClass:"main-content--image",attrs:{"src":"/static/img/kleber%20gueggel.png"}})]):_vm._e(),_vm._v(" "),(!_vm.step)?_c('p',{staticClass:"flow-text"},[_vm._v("\n        "+_vm._s(_vm.$t("message.landingPageText"))+"\n    ")]):_vm._e()],1)}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -214,7 +203,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ "3Sew":
 /***/ (function(module, exports) {
 
-module.exports = {"message":{"reserve":"Reservieren","reserved":"Reserviert","sold":"Verkauft","submit":"Abschicken","cancel":"Abbrechen","reservationFailed":"Reservation fehlgeschlagen","checkYourData":"Fehler ist vorgefallen. Überpruefe deine eingaben","stepnumber":"Trittnummer","stepprice":"Preis","sponsoredby":"Gesponsert von","reservationtitle":"Provisorische Reservation","landingPageText":"Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,","confirmationText":"Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,","reservationtext":"Sobald du die reservation abgeschlossen hast, wird sich jemand vom Vorstadtsoundsteam bei dir melden. Du musst dich nun entscheiden, ob du den treppentritt definitiv sponsoren möchtest. Falls du dich dafür entscheidest, erhällst du einen Einzahlungsschein. Nachdem die Zahlung bei uns eingetroffen ist, wird der Tritt mit deinem Namen versehen,","stepListTitle":"Treppen Stufen","back":"Zurück","listTitle":"Verfügbare Tritte"},"error":{"duplicateMail":"E-Mail wird bereits verwendet.","stepnotavailable":"Dieser Tritt ist leider nicht verfügbar.","unknown":"Ein unbekannter Fehler ist aufgetreten"},"form":{"firstname":"Vorname","lastname":"Nachname","mail":"E-Mail"}}
+module.exports = {"message":{"reserve":"Reservieren","reserved":"Reserviert","sold":"Verkauft","submit":"Abschicken","cancel":"Abbrechen","reservationFailed":"Reservation fehlgeschlagen","checkYourData":"Fehler ist vorgefallen. Überpruefe deine eingaben","stepnumber":"Trittnummer","stepprice":"Preis","sponsoredby":"Gesponsert von","reservationtitle":"Provisorische Reservation","landingPageText":"Welcome liebe Vorstadt Soundlär! Für unsere 17. Ausgabe benötigten wir eine grosse Metalltreppe, damit wir die feuerpolizeilichen Vorschriften erfüllen und somit unser schönes Holzpodest weiter benutzen dürfen. Da diese Ausgaben von CHF 7500.- eher spontan in unser Budget einflossen, hatten wir eine Idee: Du, dein Verein, ihr als Paar oder euer ganzer Haufen von super GFs, BFs und BFFs und alle anderen Friends, könnt euch JETZT am Vorstadt Sounds Festival verewigen!<br><br> Wir haben 18 Treppenstufen und eine Zwischenplattform (für's grosse Portemonnaie) zu verkaufen, nein du musst dieser weder ein Zuhause geben, noch hast du irgendwelchen Wartungsaufwand.<br><br> Für CHF 333.- könnt ihr euch eine Stufe ergattern, angeschrieben mit deinem/eurem Namen, eingraviert auf einer schicken kleinen Plakette!","confirmationText":"Danke Tuusig! Soeben hast du eine Bestätigungs-Mail erhalten. Nein? Dann checke doch bitte noch kurz deinen Spam Ordner!","reservationtext":"Super Wahl - du hast dir einen der schönsten Tritte ausgesucht! Jetzt nur noch das Formular ausfüllen und schon bist du ein Treppen-Pate!","stepListTitle":"Treppen Stufen","back":"Zurück","listTitle":"Verfügbare Tritte"},"error":{"duplicateMail":"E-Mail wird bereits verwendet.","stepnotavailable":"Dieser Tritt ist leider nicht verfügbar.","unknown":"Ein unbekannter Fehler ist aufgetreten"},"form":{"firstname":"Vorname","lastname":"Nachname","mail":"E-Mail"}}
 
 /***/ }),
 
@@ -2888,7 +2877,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__ = __webpack_require__("RW3m");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_45dee58c_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__ = __webpack_require__("+KOr");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_55b6e493_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__ = __webpack_require__("EMVc");
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
 
@@ -2905,7 +2894,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_45dee58c_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_55b6e493_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -3161,6 +3150,17 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.step)?_c('div',{staticClass:"row"},[_c('div',{staticClass:"col s12"},[_c('table',[_c('thead',[_c('tr',[_c('th',[_vm._v(_vm._s(_vm.$t("message.stepnumber")))]),_vm._v(" "),_c('th',[_vm._v(_vm._s(_vm.$t("message.stepprice")))])])]),_vm._v(" "),_c('tbody',[_c('tr',[_c('td',[_vm._v(_vm._s(_vm.step.name))]),_vm._v(" "),_c('td',[_vm._v("CHF "+_vm._s(_vm.step.price))])])])])])]):_vm._e()}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "EMVc":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"main-content"},[_c('Viewer'),_vm._v(" "),(!_vm.step)?_c('div',{staticClass:"main-content--image-wrapper"},[_c('img',{staticClass:"main-content--image",attrs:{"src":"/static/img/kleber%20gueggel.png"}})]):_vm._e(),_vm._v(" "),(!_vm.step)?_c('p',{staticClass:"main-content--text"},[_vm._v("\n        Welcome liebe Vorstadt Soundlär! Für unsere 17. Ausgabe benötigten wir eine grosse Metalltreppe, damit wir\n        die feuerpolizeilichen Vorschriften erfüllen und somit unser schönes Holzpodest weiter benutzen dürfen. Da\n        diese Ausgaben von CHF 7500.- eher spontan in unser Budget einflossen, hatten wir eine Idee: Du, dein\n        Verein, ihr als Paar oder euer ganzer Haufen von super GFs, BFs und BFFs und alle anderen Friends, könnt\n        euch JETZT am Vorstadt Sounds Festival verewigen!"),_c('br'),_vm._v("\n        Wir haben 18 Treppenstufen und eine Zwischenplattform (für's grosse Portemonnaie) zu verkaufen, nein du\n        musst dieser weder ein Zuhause geben, noch hast du irgendwelchen Wartungsaufwand."),_c('br'),_vm._v("\n        Für CHF 333.- könnt ihr euch eine Stufe ergattern, angeschrieben mit deinem/eurem Namen, eingraviert auf\n        einer schicken kleinen Plakette!\n\n    ")]):_vm._e()],1)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -7175,6 +7175,16 @@ var _vuex = __webpack_require__("NYxO");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -21701,4 +21711,4 @@ exports.default = {
 /***/ })
 
 },[0]);
-//# sourceMappingURL=main.b0c9cb1ed70e56d635cf.js.map
+//# sourceMappingURL=main.6ad4652a83689b5d8c30.js.map
