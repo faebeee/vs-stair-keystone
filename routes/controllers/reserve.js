@@ -102,6 +102,11 @@ function reserveItem(item, firstname, lastname, email) {
 exports = module.exports = function (req, res) {
     const { firstname, lastname, email } = req.body;
 
+    if(request.method !== 'post'){
+        return res.status(200).send({});
+    }
+
+
     Steps.model.findOne({ _id: req.params.id, isSold: false, isReserved: false })
         .exec((err, item) => {
             if (err) {
