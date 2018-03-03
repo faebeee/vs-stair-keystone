@@ -1,6 +1,6 @@
 const keystone = require('keystone');
 const sendmail = require('sendmail')();
-var {renderFile} = require('twig');
+var { renderFile } = require('twig');
 const Steps = keystone.list('Step');
 
 /**
@@ -59,7 +59,10 @@ function sendMail(to, html) {
 function sendMailNotification(sponsor, step) {
     return renderMailTemplate('order', sponsor, step)
         .then((html) => {
-            return Promise.all([sendMail(`faebeee@gmail.com`, html), sendMail(`sponsoring@vorstadtsounds.ch`, html)]);
+            return sendMail(`sponsoring@vorstadtsounds.ch`, html)
+                .then(() => {
+                    return sendMail(`faebeee@gmail.com`, html)
+                });
         })
         .then(() => {
             return renderMailTemplate('confirmation', sponsor, step)
@@ -80,7 +83,7 @@ function sendMailNotification(sponsor, step) {
 function reserveItem(item, firstname, lastname, email) {
     return new Promise((res, rej) => {
         item.update({
-            sponsor: {first: firstname, last: lastname},
+            sponsor: { first: firstname, last: lastname },
             sponsor_email: email,
             isReserved: true
         }, function (err, raw) {
@@ -97,9 +100,9 @@ function reserveItem(item, firstname, lastname, email) {
  * @type {module.exports}
  */
 exports = module.exports = function (req, res) {
-    const {firstname, lastname, email} = req.body;
+    const { firstname, lastname, email } = req.body;
 
-    Steps.model.findOne({_id: req.params.id, isSold: false, isReserved: false})
+    Steps.model.findOne({ _id: req.params.id, isSold: false, isReserved: false })
         .exec((err, item) => {
             if (err) {
                 return res.status(500).send(err.message);
@@ -111,7 +114,7 @@ exports = module.exports = function (req, res) {
 
             reserveItem(item, firstname, lastname, email)
                 .then(() => {
-                    return sendMailNotification({firstname, lastname, email}, item);
+                    return sendMailNotification({ firstname, lastname, email }, item);
                 })
                 .then(() => {
                     return res.status(201).send({});
