@@ -2,6 +2,7 @@ const keystone = require('keystone');
 const sendmail = require('sendmail')();
 var { renderFile } = require('twig');
 const Steps = keystone.list('Step');
+var helper = require('sendgrid').mail;
 
 /**
  *
@@ -36,16 +37,25 @@ function renderMailTemplate(type, sponsor, step) {
  */
 function sendMail(to, html) {
     return new Promise((res, rej) => {
-        sendmail({
-            from: 'no-reply@vorstadtsounds.ch',
-            to,
-            subject: 'Treppen Sponsor',
-            html: html,
-        }, (err, reply) => {
-            if (err) {
-                return rej(err);
+
+        var from_email = new helper.Email('no-reply@vorstadtsounds.ch');
+        var to_email = new helper.Email(to);
+        var subject = 'Treppen Sponsor';
+        var content = new helper.Content('text/html', html);
+        var mail = new helper.Mail(from_email, subject, to_email, content);
+
+        var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+        var request = sg.emptyRequest({
+            method: 'POST',
+            path: '/v3/mail/send',
+            body: mail.toJSON(),
+        });
+
+        sg.API(request, (error, response) => {
+            if (error) {
+                return rej(error);
             }
-            return res(reply)
+            return res(response);
         });
     })
 }
@@ -102,7 +112,7 @@ function reserveItem(item, firstname, lastname, email) {
 exports = module.exports = function (req, res) {
     const { firstname, lastname, email } = req.body;
 
-    if(req.method !== 'post'){
+    if (req.method !== 'post') {
         return res.status(200).send({});
     }
 
