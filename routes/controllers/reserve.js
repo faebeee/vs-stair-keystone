@@ -102,7 +102,7 @@ function reserveItem(item, firstname, lastname, email) {
 exports = module.exports = function (req, res) {
     const { firstname, lastname, email } = req.body;
 
-    if(request.method !== 'post'){
+    if(req.method !== 'post'){
         return res.status(200).send({});
     }
 
