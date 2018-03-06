@@ -3026,7 +3026,14 @@ var StepPlugin = function () {
         value: function getAll() {
             return _vue2.default.http.get(this.config.api + '/steps').then(function (data) {
                 var steps = data.body.steps;
-                return steps.reverse();
+                steps.sort(function (a, b) {
+                    if (a.step > b.step) {
+                        return -1;
+                    }
+
+                    return 1;
+                });
+                return steps;
             });
         }
     }], [{
@@ -21709,4 +21716,4 @@ exports.default = {
 /***/ })
 
 },[0]);
-//# sourceMappingURL=main.5fe38fddd09f7ac7dcf8.js.map
+//# sourceMappingURL=main.cc4c012dd9308010321d.js.map

@@ -48,7 +48,14 @@ export default class StepPlugin {
         return Vue.http.get(this.config.api + '/steps')
             .then((data) => {
                 const steps = data.body.steps;
-                return steps.reverse();
+                steps.sort(function(a, b) {
+                    if(a.step > b.step){
+                        return -1
+                    }
+
+                    return 1;
+                });
+                return steps;
             })
     }
 }
