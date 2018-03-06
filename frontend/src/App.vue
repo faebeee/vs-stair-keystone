@@ -1,6 +1,5 @@
 <template>
     <div id="app" class="app">
-        <HeaderComponent/>
         <div class="row app--row">
             <div class="col s12 l6 main ">
                 <MainContentComponent/>
@@ -11,7 +10,6 @@
                 </transition>
             </div>
         </div>
-        <FooterComponent/>
     </div>
 </template>
 
