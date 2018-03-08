@@ -2888,7 +2888,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__ = __webpack_require__("RW3m");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_55b6e493_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__ = __webpack_require__("EMVc");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7decee2e_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__ = __webpack_require__("iO/c");
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
 
@@ -2905,7 +2905,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_main_content_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_55b6e493_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7decee2e_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_main_content_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -3157,17 +3157,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.step)?_c('div',{staticClass:"row"},[_c('div',{staticClass:"col s12"},[_c('table',[_c('thead',[_c('tr',[_c('th',[_vm._v(_vm._s(_vm.$t("message.stepnumber")))]),_vm._v(" "),_c('th',[_vm._v(_vm._s(_vm.$t("message.stepprice")))])])]),_vm._v(" "),_c('tbody',[_c('tr',[_c('td',[_vm._v(_vm._s(_vm.step.name))]),_vm._v(" "),_c('td',[_vm._v("CHF "+_vm._s(_vm.step.price))])])])])])]):_vm._e()}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
-/***/ "EMVc":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"main-content"},[_c('Viewer'),_vm._v(" "),(!_vm.step)?_c('div',{staticClass:"main-content--image-wrapper"},[_c('img',{staticClass:"main-content--image",attrs:{"src":"/static/img/kleber%20gueggel.png"}})]):_vm._e(),_vm._v(" "),(!_vm.step)?_c('p',{staticClass:"main-content--text"},[_vm._v("\n        Welcome liebe Vorstadt Soundlär! Für unsere 17. Ausgabe benötigten wir eine grosse Metalltreppe, damit wir\n        die feuerpolizeilichen Vorschriften erfüllen und somit unser schönes Holzpodest weiter benutzen dürfen. Da\n        diese Ausgaben von CHF 7500.- eher spontan in unser Budget einflossen, hatten wir eine Idee: Du, dein\n        Verein, ihr als Paar oder euer ganzer Haufen von super GFs, BFs und BFFs und alle anderen Friends, könnt\n        euch JETZT am Vorstadt Sounds Festival verewigen!"),_c('br'),_vm._v("\n        Wir haben 18 Treppenstufen und eine Zwischenplattform (für's grosse Portemonnaie) zu verkaufen, nein du\n        musst dieser weder ein Zuhause geben, noch hast du irgendwelchen Wartungsaufwand."),_c('br'),_vm._v("\n        Für CHF 333.- könnt ihr euch eine Stufe ergattern, angeschrieben mit deinem/eurem Namen, eingraviert auf\n        einer schicken kleinen Plakette!\n\n    ")]):_vm._e()],1)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -7194,19 +7183,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 exports.default = {
     components: {
@@ -7757,6 +7733,17 @@ var Component = normalizeComponent(
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"loader"},[_c('div',{staticClass:"preloader-wrapper small active"},[_c('div',{staticClass:"spinner-layer spinner-green-only"},[_c('div',{staticClass:"circle-clipper left"},[_c('div',{staticClass:"circle"})]),_vm._v(" "),_c('div',{staticClass:"gap-patch"},[_c('div',{staticClass:"circle"})]),_vm._v(" "),_c('div',{staticClass:"circle-clipper right"},[_c('div',{staticClass:"circle"})])])])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "iO/c":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"main-content"},[_c('Viewer'),_vm._v(" "),(!_vm.step)?_c('div',{staticClass:"main-content--image-wrapper"},[_c('img',{staticClass:"main-content--image",attrs:{"src":"/static/img/kleber%20gueggel.png"}})]):_vm._e()],1)}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -21716,4 +21703,4 @@ exports.default = {
 /***/ })
 
 },[0]);
-//# sourceMappingURL=main.cc4c012dd9308010321d.js.map
+//# sourceMappingURL=main.2f93df95497c1e5a5cc0.js.map
