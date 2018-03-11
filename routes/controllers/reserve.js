@@ -1,5 +1,4 @@
 const keystone = require('keystone');
-const sendmail = require('sendmail')();
 var { renderFile } = require('twig');
 const Steps = keystone.list('Step');
 var helper = require('sendgrid').mail;
@@ -38,7 +37,7 @@ function renderMailTemplate(type, sponsor, step) {
 function sendMail(to, html) {
     return new Promise((res, rej) => {
 
-        var from_email = new helper.Email('no-reply@vorstadtsounds.ch');
+        var from_email = new helper.Email('sponsoring@vorstadtsounds.ch');
         var to_email = new helper.Email(to);
         var subject = 'Treppen Sponsor';
         var content = new helper.Content('text/html', html);
