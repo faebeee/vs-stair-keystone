@@ -1,11 +1,6 @@
 <template>
     <div class="main-content">
         <Viewer/>
-
-        <div class="main-content--image-wrapper" v-if="!step">
-            <img class="main-content--image" src="/static/img/kleber%20gueggel.png">
-        </div>
-
     </div>
 </template>
 
